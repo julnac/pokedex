@@ -1,0 +1,240 @@
+:root{
+    --light-color: #F3FCFB;
+    --dark-color: #323255;
+    --gray-color: #EBF3F5;
+
+    --green-color: #C5E4D4;
+    --blue-color: #BEDCDE;
+    --orange-color: #EED4BB;
+    --red-color: #EABBB8;
+
+    --gold-color: #FFD966; /* Jasny złoty */
+    --pink-color: #F7C8E0; /* Pastelowy różowy */
+    --brown-color: #D9B99B; /* Jasny brązowy */
+    --purple-color: #CDB4DB; /* Pastelowy fiolet */
+    --dark-gray-color: #A9A9A9; /* Neutralny ciemnoszary */
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    font-family: "Chivo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr 4fr;
+    position: static;
+}
+
+a{
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+h3{
+    font-size: 1.5rem;
+    opacity: 70%;
+}
+
+/* MAIN */
+
+main {
+    grid-column: 2;
+}
+
+.navigation {
+    /* grid-column: 1/7; */
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* header {
+    grid-column: 1/7;
+} */
+
+.pokemon-list{
+    margin-top: 5rem;
+}
+
+.pokedex {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: start;
+    gap: 3rem ;
+}
+
+.container {
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: var(--blue-color); */
+}
+
+.container:hover {
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
+.container-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-description h3 {
+    margin: 0;
+}
+
+.container-description h2 {
+    margin-bottom: .5rem;
+}
+/* ASIDE */
+
+aside {
+    grid-column: 4;
+}
+
+.aside-container{
+    position: sticky;
+    top: 0;
+
+    background-color: var(--light-color);
+    width: 100%;
+    height: 100vh;
+    box-shadow: -5px 0px 70px -9px rgb(230, 230, 235);
+
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    align-items: start;
+    align-content: start;
+}
+
+.aside-close{
+    grid-column: 1;
+    justify-self: center;
+    margin-top: 3rem;
+}
+
+.aside-title{
+    grid-column: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.aside-title h3 {
+    margin: 0;
+}
+
+.aside-title h2 {
+    margin-bottom: .5rem;
+}
+
+.aside-img {
+    grid-column: 2;
+    background-color: var(--gray-color);
+    width: 100%;
+    height: 700px;
+    border-radius: 1rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    image-rendering: pixelated;
+}
+
+/* .aside-img img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+.aside-description{
+    grid-column: 2;
+    margin-top: 3rem;
+}
+
+/* INPUT */
+
+form{
+    display: flex;
+    gap: 1rem;
+}
+
+input[type=text]{
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    width: 30%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: var(--gray-color);
+    color: var(--dark-color);
+}
+
+input::placeholder {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    opacity: 70%;
+}
+
+input[type=text]:focus {
+    border: 0.5px solid var(--dark-color);
+  }
+
+button{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border-radius: 1rem;
+    border: none;
+    padding: 1rem;
+}
+
+button:hover{
+    background-color: var(--red-color);
+}
+
+
+
+.my-element {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
