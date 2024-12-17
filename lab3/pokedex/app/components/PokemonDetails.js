@@ -1,5 +1,6 @@
 'use client';
 import {useEffect, useState} from "react";
+import Image from "next/image";
 
 export default function PokemonDetails({id}) {
     const [pokemon, setPokemon] = useState(null);
@@ -16,7 +17,6 @@ export default function PokemonDetails({id}) {
                 setError(err.message);
             }
         }
-
         fetchPokemon();
     }, [id]);
 
@@ -32,15 +32,16 @@ export default function PokemonDetails({id}) {
         <aside>
             <div key={pokemon.id}>
                 <h2>{pokemon.name}</h2>
-                <img
+                <Image
                     src={pokemon.sprites.front_default}
-                    alt={`${pokemon.name} sprite`}
-                    className="aside-img"
+                    alt={pokemon.name}
+                    width="200"
+                    height="200"
                 />
                 <div key="details-container" className="aside-description">
-                    <p><strong>Type:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
-                    <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
-                    <p><strong>Weight:</strong> ${pokemon.weight / 10} kg</p>
+                    <p><strong>Type:</strong> {pokemon.types.map(type => type.type.name).join(', ')}</p>
+                    <p><strong>Height:</strong> {pokemon.height / 10} m</p>
+                    <p><strong>Weight:</strong> {pokemon.weight / 10} kg</p>
                 </div>
             </div>
         </aside>
