@@ -11,7 +11,6 @@ export default function Filters() {
     const [type, setType] = useState(searchParams.get('type') || '');
     const [limit, setLimit] = useState(parseInt(searchParams.get('limit') || '20', 10));
 
-    // Funkcja do aktualizacji URL
     const updateURL = (key, value) => {
         const params = new URLSearchParams(searchParams.toString());
         if (value) {
@@ -22,7 +21,6 @@ export default function Filters() {
         router.push(`?${params.toString()}`);
     };
 
-    // Aktualizacja URL przy zmianie wartości
     useEffect(() => {
         updateURL('search', search);
     }, [search]);
@@ -63,7 +61,7 @@ export default function Filters() {
                 <option value="fire">Fire</option>
                 <option value="water">Water</option>
                 <option value="grass">Grass</option>
-                {/* Dodaj inne typy pokemonów */}
+                <option value="electric">Electric</option>
             </select>
             <select
                 value={limit}

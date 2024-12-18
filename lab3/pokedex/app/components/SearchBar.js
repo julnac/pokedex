@@ -1,3 +1,4 @@
+//not used
 export default function SearchBar({ filter, setFilter}) {
     const handleFilterChange = (event) => {
         setFilter(event.target.value.toLowerCase());
