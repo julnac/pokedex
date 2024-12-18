@@ -1,0 +1,93 @@
+.pokemon-detail-layout{
+    margin: 0;
+    padding: 0;
+    height: 90vh;
+    width: 100%;
+    background-image: url("/images/details.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.pokemon-detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.pokemon-detail-card {
+    border: 5px solid #323255;
+    background-color: #F3FCFB;
+    border-radius: 15px;
+    text-align: center;
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 400px;
+    min-height: 607px;
+}
+
+.pokemon-name {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #323255;
+    margin-bottom: 15px;
+}
+
+.pokemon-image {
+    background-color: #F3FCFB;
+    margin: 10px 15px 15px 15px;
+    border: 2px solid #323255;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    image-rendering: pixelated;
+}
+
+.details-container {
+    font-size: 1.2rem;
+    text-align: start;
+    padding: 15px 15px;
+}
+
+.details-container p {
+    margin: 15px 0;
+}
+
+.details-container strong {
+    color: #323255;
+}
+
+.details-navbar{
+    padding: 10px;
+    border: 1px solid #323255;
+    font-weight: bold;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.details-navbar:hover{
+    background-color:  #323255;
+    color: #F3FCFB;
+}
+
+.detail-nav-buttons {
+    display: flex;
+    color: #323255;
+    justify-content: space-around;
+    font-weight: bold;
+}
+
+.detail-nav-button{
+    border: 1px solid #323255;
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+.detail-nav-button:hover{
+    background-color:  #323255;
+    color: #F3FCFB;
+}

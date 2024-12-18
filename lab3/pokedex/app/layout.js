@@ -4,6 +4,9 @@ import Navigation from "@/app/components/Navigation";
 export const metadata = {
   title: "Pokedex",
   description: "Pokemon finder",
+    icons: {
+      icon: "/favicon.png",
+    },
 };
 
 export default function RootLayout({ children }) {

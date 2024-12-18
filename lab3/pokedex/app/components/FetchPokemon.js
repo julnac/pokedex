@@ -1,6 +1,6 @@
 export default async function fetchPokemons() {
     try {
-        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20');
+        const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -14,11 +14,10 @@ export default async function fetchPokemons() {
                     name: details.name,
                     image: details.sprites.front_default,
                     types: details.types,
-                    height: details.height,
-                    weight: details.weight,
                 };
             })
         );
+        console.log(pokemonDetails);
         return { pokemons: pokemonDetails };
     } catch (error) {
         console.error('Fetch error:', error);

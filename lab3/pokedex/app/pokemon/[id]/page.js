@@ -6,11 +6,11 @@ export default function PokemonPage ({ params }){
 
     return (
         <div>
-            <div>
+            <div className="detail-nav-buttons">
                 {id > 1 && (
-                    <Link href={`/pokemon/${id - 1}`}>Previous</Link>
+                    <Link className="detail-nav-button" href={`/pokemon/${id - 1}`}>Previous</Link>
                 )}
-                <Link href={`/pokemon/${id + 1}`}>Next</Link>
+                <Link className="detail-nav-button" href={`/pokemon/${id + 1}`}>Next</Link>
             </div>
             <PokemonDetails id={id}/>
         </div>

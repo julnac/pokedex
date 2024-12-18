@@ -1,6 +1,7 @@
 'use client';
 import {useEffect, useState} from "react";
 import Image from "next/image";
+import './PokemonDetails.css';
 
 export default function PokemonDetails({id}) {
     const [pokemon, setPokemon] = useState(null);
@@ -25,25 +26,31 @@ export default function PokemonDetails({id}) {
     }
 
     if (!pokemon) {
-        return <p>Loading...</p>;
+        return (
+            <div className="pokemon-detail-container">
+                <div className="pokemon-detail-card">
+                    <p>Loading...</p>
+                </div>
+            </div>);
     }
 
     return (
-        <aside>
-            <div key={pokemon.id}>
-                <h2>{pokemon.name}</h2>
+        <div key={pokemon.id} className="pokemon-detail-container">
+            <div className="pokemon-detail-card">
+                <h2 className="pokemon-name">{pokemon.name}</h2>
                 <Image
                     src={pokemon.sprites.front_default}
                     alt={pokemon.name}
-                    width="200"
-                    height="200"
+                    width="300"
+                    height="300"
+                    className="pokemon-image"
                 />
-                <div key="details-container" className="aside-description">
+                <div key={pokemon.id} className="details-container">
                     <p><strong>Type:</strong> {pokemon.types.map(type => type.type.name).join(', ')}</p>
                     <p><strong>Height:</strong> {pokemon.height / 10} m</p>
                     <p><strong>Weight:</strong> {pokemon.weight / 10} kg</p>
                 </div>
             </div>
-        </aside>
+        </div>
     )
 }

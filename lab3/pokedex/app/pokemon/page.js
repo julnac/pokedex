@@ -20,7 +20,6 @@ export default function PokemonPage() {
         <div>
             <h1>Pokédex</h1>
             <Filters />
-            {/*<SearchBar filter={filter} setFilter={setFilter}/>*/}
             <PokemonList pokemons={pokemons}/>
         </div>
     );

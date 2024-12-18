@@ -12,7 +12,7 @@ export default function FavorietsList( {pokemons} ) {
     const filteredFavorites = pokemons.filter((pokemon) => favorites.includes(pokemon.name));
 
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', padding: '20px' }}>
+        <div className="pokemon-list-container">
             {favorites.length === 0 ? (
                 <p>No favoriet pokemons</p>
             ) : (

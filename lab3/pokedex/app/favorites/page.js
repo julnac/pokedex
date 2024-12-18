@@ -17,8 +17,8 @@ export default function FavouritePage() {
 
     return(
         <div>
-            <h3>Favorite Pokémon</h3>
-            <p>Your favorite Pokémon will appear here!</p>
+            <h1>Favorite Pokémon</h1>
+            <p className="podtytul">Your favorite Pokémon will appear here!</p>
             <FavorietsList pokemons={pokemons} />
         </div>
     );

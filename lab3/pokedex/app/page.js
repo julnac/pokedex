@@ -3,9 +3,9 @@
 
 export default function Home() {
   return (
-    <div>
+    <div className="home">
         <h1>Welcome to the Pokémon App!</h1>
-        <p>Select a section from the navigation bar to start.</p>
+        <p className="podtytul">Select a section from the navigation bar to start.</p>
     </div>
   );
 }

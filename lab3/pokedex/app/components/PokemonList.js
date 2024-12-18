@@ -18,12 +18,8 @@ export default function PokemonList({ pokemons }) {
         })
         .slice(0, limit);
 
-    // const filteredPokemons = pokemons.filter((pokemon) =>
-    //     pokemon.name.toLowerCase().includes(filter)
-    // );
-
     return (
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', padding: '20px' }}>
+      <div className="pokemon-list-container">
         {filteredPokemons.map((pokemon) => (
             <PokemonCard pokemon={pokemon} key={pokemon.id} />
         ))}
