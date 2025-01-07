@@ -8,6 +8,10 @@ export default function PokemonDetails({id}) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (id === undefined || id === null) {
+            setPokemon("empty")
+            return
+        }
         async function fetchPokemon() {
             try {
                 const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -30,6 +34,15 @@ export default function PokemonDetails({id}) {
             <div className="pokemon-detail-container">
                 <div className="pokemon-detail-card">
                     <p>Loading...</p>
+                </div>
+            </div>);
+    }
+
+    if (pokemon === "empty") {
+        return (
+            <div className="pokemon-detail-container">
+                <div className="pokemon-detail-card">
+                    <p>Empty</p>
                 </div>
             </div>);
     }

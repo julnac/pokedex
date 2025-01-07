@@ -29,11 +29,38 @@ function getBackgroundColor(types) {
 export default function PokemonCard({ pokemon }) {
 
     const [isFavorite, setIsFavorite] = useState(false)
+    const [isCompared, setIsCompared] = useState(false)
+    const [isComparisonFull, setIsComparisonFull] = useState(false)
 
     useEffect(() => {
-        const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
-        setIsFavorite(favorites.includes(pokemon.name));
-    }, [pokemon.name]);
+        if (typeof window !== 'undefined') {
+            const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
+            setIsFavorite(favorites.includes(pokemon.name));
+
+            const comparison = JSON.parse(localStorage.getItem("comparison") || '[]');
+            setIsCompared(comparison.includes(pokemon.id));
+        }
+    }, [pokemon]);
+
+    const toggleCompared = () => {
+        const compare = JSON.parse(localStorage.getItem("comparison") || '[]');
+        if (isCompared) {
+            const updatedCompare = compare.filter(id => id !== pokemon.id);
+            localStorage.setItem('comparison', JSON.stringify(updatedCompare));
+            setIsCompared(!isCompared);
+        } else if (compare.length < 2) {
+            compare.push(pokemon.id);
+            localStorage.setItem('comparison', JSON.stringify(compare));
+            setIsCompared(!isCompared);
+        } else {
+            alert("Comparison is full 2/2")
+        }
+        if (compare.length === 2){
+            setIsComparisonFull(true)
+        } else {
+            setIsComparisonFull(false)
+        }
+    }
 
     const toggleFavorite = () => {
         const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
@@ -51,7 +78,7 @@ export default function PokemonCard({ pokemon }) {
 
     return (
         <div className="pokemon-card" style={{ backgroundColor }}>
-            <Link key={pokemon.id} href={`/pokemon/${pokemon.id}`} preload="false">
+            <Link href={`/pokemon/${pokemon.id}`} prefetch={false}>
                 <div className="pokemon-image-container">
                     <Image
                         src={pokemon.image}
@@ -65,12 +92,21 @@ export default function PokemonCard({ pokemon }) {
                     <h3 className="pokemon-id">ID: {pokemon.id}</h3>
                 </div>
             </Link>
-            <button
-                onClick={toggleFavorite}
-                className={`favorite-button ${isFavorite ? 'favorite' : 'not-favorite'}`}
-            >
-                {isFavorite ? 'Usuń z ulubionych' : 'Dodaj do ulubionych'}
-            </button>
+            <div className="pokemon-detail-buttons-container">
+                <button
+                    onClick={toggleFavorite}
+                    className={`favorite-button ${isFavorite ? 'favorite' : 'not-favorite'}`}
+                >
+                    {isFavorite ? 'Usuń z ulubionych' : 'Dodaj do ulubionych'}
+                </button>
+                <button
+                    onClick={toggleCompared}
+                    // disabled={isComparisonFull && !isCompared}
+                    className={`favorite-button ${isCompared ? 'favorite' : 'not-favorite'}`}
+                >
+                    {isCompared ? 'Usuń z porównania' : 'Porównaj'}
+                </button>
+            </div>
         </div>
-)
+    )
 }

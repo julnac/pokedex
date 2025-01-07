@@ -12,7 +12,7 @@ export default function PokemonList({ pokemons }) {
         .filter((pokemon) => {
             const matchesName = pokemon.name.toLowerCase().includes(searchFilter.toLowerCase());
             const matchesType = typeFilter
-                ? pokemon.types.some((t) => t.type.name.toLowerCase() === typeFilter.toLowerCase())
+                ? pokemon.types.some((p) => p.type.name.toLowerCase() === typeFilter.toLowerCase())
                 : true;
             return matchesName && matchesType;
         })

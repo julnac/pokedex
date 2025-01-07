@@ -91,3 +91,8 @@
     background-color:  #323255;
     color: #F3FCFB;
 }
+
+.compare-cards-container{
+    display: flex;
+    justify-content: center;
+}

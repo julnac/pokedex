@@ -71,3 +71,8 @@
 .favorite-button:hover {
     opacity: 0.9;
 }
+
+.pokemon-detail-buttons-container{
+    display: flex;
+    gap: 1rem;
+}

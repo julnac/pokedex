@@ -14,6 +14,9 @@ export default function Navigation() {
                 <li className="nav-item">
                     <Link href="/favorites">Favorites</Link>
                 </li>
+                <li>
+                    <Link href="/compare">Compare</Link>
+                </li>
             </ul>
         </nav>
     );
