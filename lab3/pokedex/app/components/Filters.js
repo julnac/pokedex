@@ -23,15 +23,33 @@ export default function Filters() {
     };
 
     useEffect(() => {
+        const savedSearch = JSON.parse(localStorage.getItem('search') || null);
+        const savedType = JSON.parse(localStorage.getItem('type') || null);
+        const savedLimit = JSON.parse(localStorage.getItem('limit') || null);
+        if (savedSearch) {
+            setSearch(savedSearch);
+        }
+        if (savedType) {
+            setType(savedType);
+        }
+        if (savedLimit) {
+            setLimit(savedLimit);
+        }
+    }, []);
+
+    useEffect(() => {
         updateURL('search', search);
+        localStorage.setItem('search', JSON.stringify(search));
     }, [search]);
 
     useEffect(() => {
         updateURL('type', type);
+        localStorage.setItem('type', JSON.stringify(type));
     }, [type]);
 
     useEffect(() => {
         updateURL('limit', limit);
+        localStorage.setItem('limit', JSON.stringify(limit));
     }, [limit]);
 
     return (
