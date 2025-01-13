@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { addNoteSchema } from "@/app/schemas";
 import './styles/NoteForm.css'; // Import CSS file
 
-export default function NoteForm({ setIsOpen, initialValues, confirmButtonText }) {
+export default function NoteForm({ setIsOpen }) {
     const pokemonTypes = [
         'Fire', 'Water', 'Grass', 'Electric', 'Rock', 'Ground',
         'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy',
@@ -18,7 +18,16 @@ export default function NoteForm({ setIsOpen, initialValues, confirmButtonText }
     return (
         <div>
             <Formik
-                initialValues={initialValues}
+                initialValues={
+                    {
+                        tacticName: '',
+                        strategyDescription: '',
+                        effectiveness: '',
+                        usageConditions: '',
+                        trainingDate: '',
+                        opponents: []
+                    }
+                }
                 validationSchema={addNoteSchema}
                 onSubmit={handleSubmit}
             >
@@ -109,7 +118,7 @@ export default function NoteForm({ setIsOpen, initialValues, confirmButtonText }
                                 type="submit"
                                 className="button button-submit"
                             >
-                                {confirmButtonText}
+                                Submit
                             </button>
                         </div>
                     </Form>
