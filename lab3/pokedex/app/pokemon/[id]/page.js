@@ -1,8 +1,10 @@
 import PokemonDetails from "@/app/components/PokemonDetails";
 import Link from "next/link";
+import NotesList from "@/app/components/NotesList";
 
-export default function PokemonPage ({ params }){
-    const id = parseInt(params.id, 10);
+export default async function PokemonPage ({ params }){
+    const p = await params;
+    const id = parseInt(p.id);
 
     return (
         <div>
@@ -13,6 +15,7 @@ export default function PokemonPage ({ params }){
                 <Link className="detail-nav-button" href={`/pokemon/${id + 1}`}>Next</Link>
             </div>
             <PokemonDetails id={id}/>
+            <NotesList id={id}/>
         </div>
     )
 }

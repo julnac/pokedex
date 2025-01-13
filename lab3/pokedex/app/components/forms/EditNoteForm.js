@@ -1,14 +1,18 @@
 import './NoteForm.css';
-import {useEffect, useState} from "react"; // Import CSS file
+import {useEffect, useState} from "react";
 
-export default function EditNoteForm({ setIsOpen, noteId }) {
+export default function EditNoteForm({ setIsOpen, noteId, setNotes }) {
     const [formData, setFormData] = useState({
+        id: '',
+        pokemonId: '',
         tacticName: '',
         strategyDescription: '',
         effectiveness: '',
         usageConditions: '',
         trainingDate: '',
-        opponents: []
+        opponents: [],
+        createdAt: '',
+        updatedAt: ''
     });
     const [errors, setErrors] = useState({});
 
@@ -21,7 +25,7 @@ export default function EditNoteForm({ setIsOpen, noteId }) {
     }, [noteId]);
 
     const handleChange = (e) => {
-        const { name, value, type, checked } = e;
+        const { name, value, type, checked } = e.target;
         if (type === 'checkbox') {
             setFormData((prev) => {
                 const newOpponents = checked
@@ -57,20 +61,26 @@ export default function EditNoteForm({ setIsOpen, noteId }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (validate()) {
             const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
             const updatedNotes = storedNotes.map(note =>
-                note.id === noteId ? { ...formData } : note
+                note.id === noteId
+                    ? {
+                        ...formData,
+                        updatedAt: new Date().toISOString(),
+                    } : note
             );
             localStorage.setItem('notes', JSON.stringify(updatedNotes));
-            setIsOpen(false);
+            setNotes(updatedNotes);
+            setIsOpen(null);
         }
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div  className="container">
                     <input
                         type="text"
                         id="tacticName"
@@ -159,7 +169,7 @@ export default function EditNoteForm({ setIsOpen, noteId }) {
                 <div className="flex-container">
                     <button
                         type="button"
-                        onClick={() => setIsOpen(false)}
+                        onClick={() => setIsOpen(null)}
                         className="button button-cancel"
                     >
                         Cancel

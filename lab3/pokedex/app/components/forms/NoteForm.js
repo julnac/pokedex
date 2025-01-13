@@ -1,17 +1,29 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { addNoteSchema } from "@/app/schemas";
-import './styles/NoteForm.css'; // Import CSS file
+import './NoteForm.css';
+import { v4 as uuidv4 } from 'uuid';
 
-export default function NoteForm({ setIsOpen }) {
+export default function NoteForm({ setIsOpen, setNotes, pokemonId }) {
     const pokemonTypes = [
         'Fire', 'Water', 'Grass', 'Electric', 'Rock', 'Ground',
         'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy',
     ];
 
     const handleSubmit = (values) => {
-        const currentNotes = JSON.parse(localStorage.getItem('notes')) || [];
-        currentNotes.push(values);
-        localStorage.setItem('notes', JSON.stringify(currentNotes));
+        const uniqueId = uuidv4();
+        const newNote = {
+            id: uniqueId,
+            pokemonId: pokemonId.id,
+            ...values,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+        };
+
+        const existingNotes = JSON.parse(localStorage.getItem('notes')) || [];
+        existingNotes.push(newNote);
+
+        localStorage.setItem('notes', JSON.stringify(existingNotes));
+        setNotes(existingNotes);
         setIsOpen(false);
     }
 
@@ -51,7 +63,7 @@ export default function NoteForm({ setIsOpen }) {
                         />
                         <ErrorMessage name="strategyDescription" component="div" className="error-message" />
 
-                        <div>
+                        <div className="container">
                             <div>
                                 <label htmlFor="effectiveness" className="label">Effectiveness</label>
                                 <Field
@@ -79,7 +91,7 @@ export default function NoteForm({ setIsOpen }) {
                                 />
                                 <ErrorMessage name="usageConditions" component="div" className="error-message" />
                             </div>
-                            <div>
+                            <div className="date">
                                 <label htmlFor="trainingDate" className="label">Training date</label>
                                 <Field
                                     type="date"

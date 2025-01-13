@@ -1,0 +1,83 @@
+.notes-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notes-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.notes-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.note-item {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.note-details {
+    margin-bottom: 10px;
+}
+
+.note-details div {
+    margin-bottom: 5px;
+}
+
+.note-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid var(--foreground);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--background);
+}
+
+.edit-button {
+    background-color: var(--foreground);
+}
+
+.edit-button:hover {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.delete-button {
+    background-color: var(--foreground);
+}
+
+.delete-button:hover {
+    background-color: var(--background);
+    color: var(--foreground);
+}
+
+.add-button {
+    display: block;
+    margin: 20px auto 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--foreground);
+}
+
+.add-button:hover {
+    background-color: var(--background);
+    color: var(--foreground);
+}
