@@ -1,0 +1,175 @@
+/* ===== COMPARISON DRAWER ===== */
+.comparison-drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 90;
+    height: var(--drawer-height);
+    background: var(--bg-drawer);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(124, 92, 252, 0.2);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 2rem;
+    transform: translateY(100%);
+    transition: transform var(--transition-slow);
+}
+
+.comparison-drawer.visible {
+    transform: translateY(0);
+}
+
+/* Slot */
+.drawer-slot {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 8px 16px 8px 8px;
+    background: var(--glass-bg);
+    border: var(--border-subtle);
+    border-radius: var(--radius-full);
+    min-width: 180px;
+    height: 54px;
+}
+
+.drawer-slot-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    min-width: 180px;
+    height: 54px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.drawer-slot-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-gradient-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.drawer-slot-img img {
+    image-rendering: pixelated;
+}
+
+.drawer-slot-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+}
+
+.drawer-slot-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drawer-slot-id {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.drawer-slot-remove {
+    margin-left: auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.drawer-slot-remove:hover {
+    background: rgba(255, 107, 157, 0.15);
+    color: var(--accent-secondary);
+}
+
+/* VS badge */
+.drawer-vs {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+/* Compare button */
+.drawer-compare-btn {
+    padding: 10px 28px;
+    border-radius: var(--radius-full);
+    background: var(--accent-gradient);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 16px rgba(124, 92, 252, 0.3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.drawer-compare-btn:hover {
+    box-shadow: 0 6px 24px rgba(124, 92, 252, 0.45);
+    transform: translateY(-2px);
+}
+
+.drawer-compare-btn:disabled,
+.drawer-compare-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .comparison-drawer {
+        gap: 0.75rem;
+        padding: 0 1rem;
+        height: 80px;
+    }
+
+    .drawer-slot,
+    .drawer-slot-empty {
+        min-width: 120px;
+        padding: 6px 10px 6px 6px;
+    }
+
+    .drawer-compare-btn {
+        padding: 8px 16px;
+        font-size: 0.82rem;
+    }
+}

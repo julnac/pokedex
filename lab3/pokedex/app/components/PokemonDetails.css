@@ -1,98 +1,219 @@
-.pokemon-detail-layout{
-    margin: 0;
-    padding: 0;
-    height: 90vh;
-    width: 100%;
-    background-image: url("/images/details.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* ===== COMPARE PAGE ===== */
+.compare-page {
+    min-height: calc(100vh - var(--nav-height));
+    padding: 2rem;
+    background: radial-gradient(ellipse at 50% 0%, rgba(124, 92, 252, 0.08) 0%, transparent 50%);
 }
+
+.compare-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.compare-page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.compare-clear-btn {
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 107, 157, 0.1);
+    border: 1px solid rgba(255, 107, 157, 0.2);
+    color: var(--accent-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.compare-clear-btn:hover {
+    background: rgba(255, 107, 157, 0.2);
+    border-color: rgba(255, 107, 157, 0.35);
+}
+
+.compare-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.compare-vs-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 4px;
+}
+
+/* Detail card for compare page */
 .pokemon-detail-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin: 20px;
 }
 
 .pokemon-detail-card {
-    border: 5px solid #323255;
-    background-color: #F3FCFB;
-    border-radius: 15px;
+    background: var(--bg-card);
+    border: var(--border-subtle);
+    border-radius: var(--radius-xl);
     text-align: center;
-    margin: 20px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
-    min-width: 400px;
-    min-height: 607px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    min-width: 340px;
+    max-width: 400px;
+    transition: all var(--transition-normal);
 }
 
-.pokemon-name {
-    font-size: 2rem;
-    font-weight: bold;
+.pokemon-detail-card:hover {
+    border-color: rgba(124, 92, 252, 0.2);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.pokemon-detail-card .pokemon-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
     text-transform: capitalize;
-    color: #323255;
-    margin-bottom: 15px;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
-.pokemon-image {
-    background-color: #F3FCFB;
-    margin: 10px 15px 15px 15px;
-    border: 2px solid #323255;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.pokemon-detail-card .pokemon-image {
+    background: var(--accent-gradient-subtle);
+    border-radius: var(--radius-md);
+    border: var(--border-subtle);
     image-rendering: pixelated;
+    margin-bottom: 1rem;
 }
 
 .details-container {
-    font-size: 1.2rem;
     text-align: start;
-    padding: 15px 15px;
+    padding: 1rem;
+    background: var(--glass-bg);
+    border-radius: var(--radius-md);
+    border: var(--border-subtle);
 }
 
 .details-container p {
-    margin: 15px 0;
+    margin: 0.75rem 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
 }
 
 .details-container strong {
-    color: #323255;
+    color: var(--text-primary);
 }
 
-.details-navbar{
-    padding: 10px;
-    border: 1px solid #323255;
-    font-weight: bold;
-    width: 150px;
-    text-align: center;
-    margin: 10px;
-    border-radius: 15px;
-}
-
-.details-navbar:hover{
-    background-color:  #323255;
-    color: #F3FCFB;
+/* ===== POKEMON DETAIL PAGE (single pokemon) ===== */
+.pokemon-detail-layout {
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 2rem;
+    background: radial-gradient(ellipse at 50% 0%, rgba(124, 92, 252, 0.08) 0%, transparent 50%);
 }
 
 .detail-nav-buttons {
     display: flex;
-    color: #323255;
-    justify-content: space-around;
-    font-weight: bold;
-}
-
-.detail-nav-button{
-    border: 1px solid #323255;
-    padding: 10px 20px;
-    border-radius: 15px;
-}
-
-.detail-nav-button:hover{
-    background-color:  #323255;
-    color: #F3FCFB;
-}
-
-.compare-cards-container{
-    display: flex;
     justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.detail-nav-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.detail-nav-button:hover {
+    background: rgba(124, 92, 252, 0.12);
+    border-color: rgba(124, 92, 252, 0.25);
+    color: var(--accent-primary);
+}
+
+.details-navbar {
+    padding: 8px 20px;
+    border-radius: var(--radius-full);
+    background: var(--glass-bg);
+    border: var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.details-navbar:hover {
+    background: rgba(124, 92, 252, 0.12);
+    border-color: rgba(124, 92, 252, 0.25);
+    color: var(--accent-primary);
+}
+
+/* Compare empty state */
+.compare-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+    gap: 1rem;
+}
+
+.compare-empty-icon {
+    font-size: 3.5rem;
+}
+
+.compare-empty h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.compare-empty p {
+    max-width: 400px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.compare-empty-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.5rem;
+    padding: 10px 24px;
+    border-radius: var(--radius-full);
+    background: var(--accent-gradient);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    box-shadow: 0 4px 16px rgba(124, 92, 252, 0.3);
+}
+
+.compare-empty-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(124, 92, 252, 0.45);
 }

@@ -1,11 +1,12 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className="home">
-        <h1>Welcome to the Pokémon App!</h1>
-        <p className="podtytul">Select a section from the navigation bar to start.</p>
+      <h1>Pokémon Discovery</h1>
+      <p className="podtytul">
+        Explore, filter, and compare your favorite Pokémon from the Pokédex.
+      </p>
     </div>
   );
 }

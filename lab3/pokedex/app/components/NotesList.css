@@ -1,83 +1,122 @@
 .notes-container {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    background-color: var(--background);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0 0 3rem;
+}
+
+.notes-section-card {
+    background: var(--bg-card);
+    border: var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
 }
 
 .notes-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     margin-left: 0;
-    text-align: center;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .notes-list {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
 }
 
 .note-item {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background: var(--glass-bg);
+    padding: 1rem 1.25rem;
+    border: var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast);
+}
+
+.note-item:hover {
+    border-color: rgba(124, 92, 252, 0.2);
 }
 
 .note-details {
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
 }
 
 .note-details div {
     margin-bottom: 5px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+}
+
+.note-details strong {
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .note-actions {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
 .button {
-    padding: 8px 12px;
-    font-size: 14px;
-    border: 1px solid var(--foreground);
-    border-radius: 10px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: var(--border-subtle);
+    border-radius: var(--radius-full);
     cursor: pointer;
-    color: var(--background);
+    font-family: 'Inter', sans-serif;
+    transition: all var(--transition-fast);
 }
 
 .edit-button {
-    background-color: var(--foreground);
+    background: var(--glass-bg);
+    color: var(--text-secondary);
 }
 
 .edit-button:hover {
-    background-color: var(--background);
-    color: var(--foreground);
+    background: rgba(124, 92, 252, 0.12);
+    border-color: rgba(124, 92, 252, 0.25);
+    color: var(--accent-primary);
 }
 
 .delete-button {
-    background-color: var(--foreground);
+    background: rgba(255, 107, 157, 0.08);
+    border: 1px solid rgba(255, 107, 157, 0.15);
+    color: var(--accent-secondary);
 }
 
 .delete-button:hover {
-    background-color: var(--background);
-    color: var(--foreground);
+    background: rgba(255, 107, 157, 0.18);
+    border-color: rgba(255, 107, 157, 0.3);
 }
 
 .add-button {
     display: block;
-    margin: 20px auto 0;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: var(--foreground);
+    margin: 1.25rem auto 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    color: #fff;
+    border: none;
+    padding: 9px 24px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 16px rgba(124, 92, 252, 0.3);
 }
 
 .add-button:hover {
-    background-color: var(--background);
-    color: var(--foreground);
+    box-shadow: 0 6px 24px rgba(124, 92, 252, 0.45);
+    transform: translateY(-2px);
+}
+
+.notes-empty {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.88rem;
 }
