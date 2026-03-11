@@ -7,9 +7,9 @@
 
 A modern, highly interactive Pokémon Discovery & Comparison Web App. Built to demonstrate advanced state management, asynchronous data fetching strategies, and premium UI design implementation using vanilla CSS.
 
-## 🌟 Live Demo / Screenshots
+## 🌟 Live Demo
 
-
+https://pokedex-ten-pink.vercel.app/
 
 ## 🚀 Key Features
 
