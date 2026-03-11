@@ -22,15 +22,15 @@ export default function ComparePage() {
 
     if (compared.length === 0) {
         return (
-            <div className="compare-page">
-                <div className="compare-empty">
-                    <span className="compare-empty-icon">⚖️</span>
+            <div className='compare-page'>
+                <div className='compare-empty'>
+                    <span className='compare-empty-icon'>⚖️</span>
                     <h3>No Pokémon Selected for Comparison</h3>
                     <p>
-                        Head to the Pokédex and click "Compare" on two Pokémon
+                        Head to the Pokédex and click &quot;Compare&quot; on two Pokémon
                         to see them side by side!
                     </p>
-                    <Link href="/pokemon" className="compare-empty-link">
+                    <Link href="/pokemon" className='compare-empty-link'>
                         Browse Pokédex →
                     </Link>
                 </div>

@@ -8,7 +8,8 @@
 A modern, highly interactive Pokémon Discovery & Comparison Web App. Built to demonstrate advanced state management, asynchronous data fetching strategies, and premium UI design implementation using vanilla CSS.
 
 ## 🌟 Live Demo / Screenshots
-*(Tutaj wstaw link do Vercela lub gify z działającej aplikacji)*
+
+
 
 ## 🚀 Key Features
 
@@ -61,4 +62,4 @@ npm run dev
 
 ## 🤝 Contact
 
-Created by [Twoje Imię i Nazwisko](https://www.linkedin.com/in/twoj-profil) - feel free to contact me!
+Created by [Julia Pozorska](https://www.linkedin.com/in/twoj-profil) - feel free to contact me!
