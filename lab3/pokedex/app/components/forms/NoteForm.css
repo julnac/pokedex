@@ -1,75 +1,240 @@
+/* ===== NOTE FORM PREMIUM STYLES ===== */
 
-.form-field {
-    width: 100%;
-    background-color: var(--background);
-    color: var(--foreground);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    outline: none;
-    padding: 0.5rem;
-    border: 1px solid var(--foreground);
+.nf-wrapper {
+    margin-top: 1.5rem;
+    background: var(--bg-card);
+    border: var(--border-subtle);
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: nfFadeIn 0.3s ease-out;
 }
 
-.container{
-    margin-top: 2rem;
+@keyframes nfFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nf-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.nf-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.nf-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.nf-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nf-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nf-input,
+.nf-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: all var(--transition-fast);
+}
+
+.nf-input:focus,
+.nf-select:focus {
+    border-color: var(--accent-primary);
+    background: rgba(124, 92, 252, 0.08);
+    box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.15);
+}
+
+.nf-input::placeholder {
+    color: var(--text-muted);
+}
+
+.nf-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.nf-select option {
+    background: #1a1b26;
+    color: #fff;
+}
+
+.nf-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 1.25rem;
 }
 
-.date .form-field {
-    color: var(--foreground);
-    width: 50%;
-    height: 2rem;
+.nf-col-span-2 {
+    grid-column: span 2;
 }
 
-.error-message {
-    color: #f87171;
-    font-size: 0.875rem;
+.nf-error-message {
+    color: #ff5959;
+    font-size: 0.8rem;
+    font-weight: 500;
     margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.label {
-    margin-right: 0.5rem;
+.nf-error-message::before {
+    content: "⚠️";
+    font-size: 0.85rem;
 }
 
-.select-effectiveness {
-    background-color: var(--background);
-    color: var(--foreground);
-    padding: 0.5rem;
+/* Checkboxes */
+.nf-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.button {
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
+.nf-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
 }
 
-.button-cancel {
-    background-color: #4b5563;
+.nf-checkbox-input {
+    display: none;
+}
+
+.nf-checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.nf-checkbox-input:checked+.nf-checkbox-custom {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.nf-checkbox-input:checked+.nf-checkbox-custom::after {
+    content: "✓";
     color: white;
-    margin-right: 0.75rem;
+    font-size: 12px;
+    font-weight: bold;
 }
 
-.button-cancel:hover {
-    background-color: #374151;
+.nf-checkbox-label {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
 }
 
-.button-submit {
-    background-color: #ef4444;
-    color: white;
+.nf-checkbox-input:checked~.nf-checkbox-label {
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
-.button-submit:hover {
-    background-color: #dc2626;
-}
-
-.flex-container {
+/* Buttons */
+.nf-actions {
     display: flex;
     justify-content: flex-end;
+    gap: 1rem;
     margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: var(--border-subtle);
 }
 
-.checkbox-label {
-    margin-left: 0.5rem;
+.nf-btn {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all var(--transition-fast);
+}
+
+.nf-btn-cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-secondary);
+}
+
+.nf-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--text-primary);
+}
+
+.nf-btn-submit {
+    background: var(--accent-gradient);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(124, 92, 252, 0.3);
+}
+
+.nf-btn-submit:hover {
+    box-shadow: 0 6px 18px rgba(124, 92, 252, 0.45);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .nf-wrapper {
+        padding: 1.5rem;
+    }
+
+    .nf-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nf-col-span-2 {
+        grid-column: 1;
+    }
+
+    .nf-actions {
+        flex-direction: column-reverse;
+    }
+
+    .nf-btn {
+        width: 100%;
+    }
 }
